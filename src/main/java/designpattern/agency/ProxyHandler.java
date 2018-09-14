@@ -5,10 +5,10 @@ import java.lang.reflect.Method;
 
 public class ProxyHandler implements InvocationHandler {
 
-    private Star star;
+    private Object obj;
 
-    public ProxyHandler(Star star) {
-        this.star = star;
+    public ProxyHandler(Object obj) {
+        this.obj = obj;
     }
 
     /**
@@ -22,12 +22,16 @@ public class ProxyHandler implements InvocationHandler {
      */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println("签约");
+//    	System.out.println("proxy==="+proxy);
+    	System.out.println("method==="+method);
+    	System.out.println("args==="+args);
+//        System.out.println("签约");
+    	System.out.println("obj==="+obj);
         Object result = null;
         if (method.getName().equals("singSong")) {
-            result = method.invoke(star, args);
+            result = method.invoke(obj, args);
         }
-        System.out.println("收款");
+//        System.out.println("收款");
         return result;
     }
 }
