@@ -1,5 +1,9 @@
 package javabase.abstracttest;
 
 public abstract class Animal {
-	abstract void name();
+	
+	public Animal(){
+		System.out.println("Animal");
+	}
+	public abstract void name();
 }
